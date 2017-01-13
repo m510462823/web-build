@@ -174,7 +174,7 @@
                   </div>
                  <div class="laTX">
                    <h2><a href="#">史上最全的CSS hack浏览器兼容问题</a></h2> 
-                   <span>2015-10-27 13:59</span>
+                   <span id="laTime"></span>
                     </div> 
                     <p class="laTXp">在web前端开发过程中，我们经常会遇到CSS对浏览器的兼容性问题。有时让人很头疼，或许当你了解当中的技巧跟原理，就会觉得也不是难事,从网上收集了IE7,6与Fireofx的兼容性处理方法并整理...[<a href="#">详细</a>]</p>
                      
@@ -378,14 +378,14 @@
 
   <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
-    <script type="text/javascript">
+   <!-- <script type="text/javascript">
     $(document).ready(function(){
         $('.flexslider').flexslider({
             directionNav: true,
             pauseOnAction: false
         });
     });
-    </script>
+    </script>-->
 <script src="js/jq.js"></script>
 <script src="js/jquery.js"></script>
 <script src="js/sucaijiayuan.js"></script>
@@ -404,7 +404,41 @@
       });
     });
 
+        
 	</script>
+
+<script>
+ window.onload = setTime;
+function setTime(){
+	var now = new Date();
+	var myyear = now.getFullYear();
+	var mymonth = now.getMonth()+1;
+	var mydate = now.getDate();
+	var myhours = now.getHours();
+	var myminutes = now.getMinutes();
+	var myseconds = now.getSeconds();
+
+	if(mymonth<10){
+		mymonth = "0"+mymonth
+	}
+
+	if(mydate<10){
+		mydate = "0"+mydate
+	}
+	var date =myyear + "年"+ mymonth + "月" + mydate + "日";
+	var time = myhours + "点"+ myminutes + "分" + myseconds + "秒";
+	var laTime = document.getElementById('laTime');
+	laTime.innerHTML=date+' '+time;
+	setInterval(setTime,1000)
+}
+
+
+      
+  
+   
+</script>
+
+
 
 </body>
 </html>
